@@ -1,0 +1,8 @@
+local t = uv.new_timer()
+t:start(1, 0, function() end)
+t:close()
+t:close()
+t:start(1, 0, function() end)
+t:stop()
+t:ref()
+uv.run()

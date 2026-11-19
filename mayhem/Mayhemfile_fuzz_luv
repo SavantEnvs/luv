@@ -1,0 +1,10 @@
+project: savantenvs/luv
+target: fuzz_luv
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_luv/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_luv
+    libfuzzer: true
+    timeout: 5
+    dictionary: /mayhem/mayhem/fuzz_luv/fuzz_luv.dict

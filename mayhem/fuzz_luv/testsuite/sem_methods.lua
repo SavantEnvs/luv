@@ -1,0 +1,8 @@
+local s = uv.new_sem(1)
+assert(s.wait == nil)
+assert(s:trywait() == true)
+assert(s:trywait() == false)
+s:post()
+uv.sem_post(s)
+assert(uv.sem_trywait(s))
+assert(not pcall(function() s:wait() end))
